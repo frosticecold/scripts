@@ -4,7 +4,7 @@ Just my scripting adventures
 My scripts are my own adventure while i learning Linux, automating little projects, one at a time.
 My goal is aimed at better out of the box quality of life.
 
-I work mostly with Debian/Ubuntu.
+I work mostly with Debian
 
   non-free.sh 
 
