@@ -23,3 +23,10 @@ I work mostly with Debian/Ubuntu.
              |-> Installs sudo
              
              |-> Adds current username with sudo permissions
+
+  webmin.sh
+
+             |-> Adds webmin.list to source.list.d
+             
+             |-> Installs webmin
+             
