@@ -1,12 +1,12 @@
 #!/bin/bash
 
-#Login User
+#Login Username
 tmpuser=$(logname)
 permissions="\n$tmpuser	ALL=(ALL:ALL) ALL\n"
 line=$(grep -n "%sudo" /etc/sudoers | cut -d : -f 1)
 let "line+=1"
 
-#check root
+#Check if running by root
 function checkRoot {
 
         if [ "$(id -u)" != "0" ]; then
@@ -15,7 +15,7 @@ function checkRoot {
         fi
 }
 
-#sudoers file
+#Edit sudoers file
 
 checkRoot
 sed -ie "${line}s/^/$permissions/" /etc/sudoers
