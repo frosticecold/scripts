@@ -3,6 +3,7 @@
 #Login Username
 tmpuser=$(logname)
 permissions="\n$tmpuser	ALL=(ALL:ALL) ALL\n"
+apt-get install -y sudo
 line=$(grep -n "%sudo" /etc/sudoers | cut -d : -f 1)
 let "line+=1"
 
