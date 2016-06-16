@@ -21,3 +21,6 @@ function checkRoot {
 checkRoot
 sed -ie "${line}s/^/$permissions/" /etc/sudoers
 
+#
+#Recommended
+#usermod -a -G sudo user
