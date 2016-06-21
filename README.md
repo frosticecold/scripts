@@ -1,9 +1,9 @@
 # Scripts
 Just my scripting adventures
 
-My scripts are my own adventure while i learning Linux, automating little projects, one at a time.
+My scripts are my own adventure , automating little projects, one at a time.
 My goal is aimed at better out of the box quality of life.
-Server applications deployment with ease, learning not to breaking debian.
+Server applications deployment with ease, learning to break stuff and fix it.
 
 I work mostly with Debian
 
