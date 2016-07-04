@@ -3,9 +3,14 @@
 #Login Username
 tmpuser=$(logname)
 permissions="\n$tmpuser	ALL=(ALL:ALL) ALL\n"
-apt-get install -y sudo
-line=$(grep -n "%sudo" /etc/sudoers | cut -d : -f 1)
-let "line+=1"
+
+#Install sudo
+function installSudo {
+
+        apt-get install -y sudo
+        line=$(grep -n "%sudo" /etc/sudoers | cut -d : -f 1)
+        let "line+=1"
+}
 
 #Check if running by root
 function checkRoot {
@@ -19,6 +24,7 @@ function checkRoot {
 #Edit sudoers file
 
 checkRoot
+installSudo
 sed -ie "${line}s/^/$permissions/" /etc/sudoers
 
 #
