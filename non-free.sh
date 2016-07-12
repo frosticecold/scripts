@@ -10,8 +10,8 @@ echo "Writes /etc/apt/sources.list in order to add $DEBIAN_RELEASE non-free repo
 
 echo "# deb http://http.debian.net/debian $DEBIAN_RELEASE main" > /etc/apt/sources.list
 echo "" >> /etc/apt/sources.list
-echo "deb http://http.debian.net/debian $DEBIAN_RELEASE main contrib non-free" >> /etc/apt/sources.list
-echo "deb-src http://http.debian.net/debian $DEBIAN_RELEASE main contrib non-free" >> /etc/apt/sources.list
+echo "deb http://httpredir.debian.net/debian $DEBIAN_RELEASE main contrib non-free" >> /etc/apt/sources.list
+echo "deb-src http://httpredir.debian.net/debian $DEBIAN_RELEASE main contrib non-free" >> /etc/apt/sources.list
 
 echo "" >> /etc/apt/sources.list
 echo "deb http://security.debian.org/ $DEBIAN_RELEASE/updates main contrib non-free" >> /etc/apt/sources.list
@@ -19,10 +19,10 @@ echo "deb-src http://security.debian.org/ $DEBIAN_RELEASE/updates main contrib n
 
 echo "" >> /etc/apt/sources.list
 echo "# $DEBIAN_RELEASE-updates, previously known as "volatile"" >> /etc/apt/sources.list
-echo "deb http://http.debian.net/debian $DEBIAN_RELEASE-updates main contrib non-free" >> /etc/apt/sources.list
-echo "deb-src http://http.debian.net/debian $DEBIAN_RELEASE-updates main contrib non-free" >> /etc/apt/sources.list
+echo "deb http://httpredir.debian.net/debian $DEBIAN_RELEASE-updates main contrib non-free" >> /etc/apt/sources.list
+echo "deb-src http://httpredir.debian.net/debian $DEBIAN_RELEASE-updates main contrib non-free" >> /etc/apt/sources.list
 
 echo "" >> /etc/apt/sources.list
 echo "# $DEBIAN_RELEASE-backports" >> /etc/apt/sources.list
-echo "deb http://http.debian.net/debian $DEBIAN_RELEASE-backports main contrib non-free" >> /etc/apt/sources.list
+echo "deb http://httpredir.debian.net/debian $DEBIAN_RELEASE-backports main contrib non-free" >> /etc/apt/sources.list
 echo ""
