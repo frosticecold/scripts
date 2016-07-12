@@ -1,8 +1,33 @@
 #!/bin/bash
 
+#vars
+debian="Debian GNU/Linux"
+centos="CentOS Linux"
+installer=""
+sudogroup=""
+
+#checkDistro
+function checkDistro {
+    
+    currentdistro=$(cat /etc/os-release | grep -w "NAME" | cut -d \" -f2)
+    
+    if [ currentdistro -eq debian ]
+
+        then 
+            installer="apt-get install"
+            sudogroup="sudo"
+        else
+            installer="yum install"
+            sudogroup="wheel"
+    fi
+}
+
 #Login Username
-tmpuser=$(logname)
-permissions="\n$tmpuser	ALL=(ALL:ALL) ALL\n"
+function getUsername {
+
+    tmpuser=$(logname)
+    permissions="\n$tmpuser	ALL=(ALL:ALL) ALL\n"
+}
 
 #Install sudo
 function installSudo {
@@ -28,6 +53,8 @@ installSudo
 
 #install sudo hard mode
 sed -ie "${line}s/^/$permissions/" /etc/sudoers
+
+#add user to sudo group
 
 #
 #Recommended
