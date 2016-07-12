@@ -17,8 +17,11 @@ function checkDistro {
             installer="apt-get install"
             sudogroup="sudo"
         else
-            installer="yum install"
-            sudogroup="wheel"
+            if [ currentdistro -eq centos ]
+                then
+                    installer="yum install"
+                    sudogroup="wheel"
+            fi
     fi
 }
 
