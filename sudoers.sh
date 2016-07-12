@@ -29,4 +29,4 @@ sed -ie "${line}s/^/$permissions/" /etc/sudoers
 
 #
 #Recommended
-#usermod -a -G sudo user
+#usermod -aG sudo user
