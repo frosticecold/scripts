@@ -5,39 +5,33 @@ debian="Debian GNU/Linux"
 centos="CentOS Linux"
 installer=""
 sudogroup=""
+tmpuser=$(logname)
 
 #checkDistro
 function checkDistro {
     
     currentdistro=$(cat /etc/os-release | grep -w "NAME" | cut -d \" -f2)
-    
-    if [ currentdistro -eq debian ]
-
-        then 
-            installer="apt-get install"
-            sudogroup="sudo"
-        else
-            if [ currentdistro -eq centos ]
-                then
-                    installer="yum install"
-                    sudogroup="wheel"
-            fi
-    fi
-}
+    echo $currentdistro
+	}
 
 #Login Username
-function getUsername {
+function hardUser {
 
-    tmpuser=$(logname)
     permissions="\n$tmpuser	ALL=(ALL:ALL) ALL\n"
 }
 
 #Install sudo
 function installSudo {
-
-        apt-get install -y sudo
-        line=$(grep -n "%sudo" /etc/sudoers | cut -d : -f 1)
-        let "line+=1"
+	
+	if [[ $currentdistro == $debian ]]
+	then
+		apt-get install -y sudo
+	elif [[ $currentdistro == $centos ]]
+	then
+		yum -y install sudo
+	fi        
+        #line=$(grep -n "%sudo" /etc/sudoers | cut -d : -f 1)
+        #let "line+=1"
 }
 
 #Check if running by root
@@ -48,14 +42,31 @@ function checkRoot {
                 exit 1
         fi
 }
+#Soft add user
+function softUser {
+	echo "Adding user to sudoers file..."
+	case $currentdistro in
+		$debian)
+			usermod -aG sudo $tmpuser
+			su $tmpuser -
+			;;
+		$centos)
+			usermod -aG wheel $tmpuser
+			su $tmpuser -
+			;;
+	esac
+}
+
 
 #Edit sudoers file
 
 checkRoot
+checkDistro
 installSudo
+softUser
 
 #install sudo hard mode
-sed -ie "${line}s/^/$permissions/" /etc/sudoers
+#sed -ie "${line}s/^/$permissions/" /etc/sudoers
 
 #add user to sudo group
 
