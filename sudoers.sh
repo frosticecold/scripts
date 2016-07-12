@@ -25,6 +25,8 @@ function checkRoot {
 
 checkRoot
 installSudo
+
+#install sudo hard mode
 sed -ie "${line}s/^/$permissions/" /etc/sudoers
 
 #
