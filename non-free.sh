@@ -8,7 +8,7 @@ DEBIAN_RELEASE=`cat /etc/*-release 2> /dev/null | grep PRETTY_NAME | awk -F "=" 
 
 echo "Writes /etc/apt/sources.list in order to add $DEBIAN_RELEASE non-free repository"
 
-echo "# deb http://http.debian.net/debian $DEBIAN_RELEASE main" > /etc/apt/sources.list
+echo "# deb http://httpredir.debian.net/debian $DEBIAN_RELEASE main" > /etc/apt/sources.list
 echo "" >> /etc/apt/sources.list
 echo "deb http://httpredir.debian.net/debian $DEBIAN_RELEASE main contrib non-free" >> /etc/apt/sources.list
 echo "deb-src http://httpredir.debian.net/debian $DEBIAN_RELEASE main contrib non-free" >> /etc/apt/sources.list
