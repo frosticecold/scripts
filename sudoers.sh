@@ -46,6 +46,14 @@ function checkRoot {
                 exit 1
         fi
 }
+
+function checkSuccess {
+	if [ $(groups | grep -c "sudo") == 1 ]
+	then
+		echo Sucess, user is in group.
+	fi
+}
+
 #Soft add user
 function softUser {
 	echo "Adding user to sudoers file..."
@@ -61,13 +69,6 @@ function softUser {
 			su $tmpuser
 			;;
 	esac
-}
-
-function checkSuccess {
-	if [ $(groups | grep -c "sudo") == 1 ]
-	then
-		echo Sucess, user is in group.
-	fi
 }
 #Edit sudoers file
 
