@@ -63,7 +63,7 @@ function softUser {
 
 	if [ $(groups $tmpuser | grep -c $sudogroup) -eq  1 ]
 	then
-		echo "Success, user is in group."
+		echo "Success, user is in $sudogroup group."
 	fi
 }
 #Edit sudoers file
