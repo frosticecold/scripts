@@ -62,7 +62,7 @@ function softUser {
 }
 
 function checkSuccess {
-	if [ $(groups | grep -c "sudo") == 1 ]
+	if [ $(groups $tmpuser | grep -c "sudo") == 1 ]
 	then
 		echo Sucess, user is in group.
 	fi
