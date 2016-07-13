@@ -58,7 +58,8 @@ function softUser {
 			usermod -aG wheel $tmpuser
 			;;
 	esac
-	if [ $(groups | grep -c "sudo") == 1 ]
+
+	if [ $(groups $tmpuser | grep -c "sudo") -eq  1 ]
 	then
 		echo "Success, user is in group."
 	fi
