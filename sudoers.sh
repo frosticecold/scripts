@@ -3,6 +3,7 @@
 #vars
 debian="Debian GNU/Linux"
 centos="CentOS Linux"
+ubuntu="Ubuntu"
 installer=""
 sudogroup=""
 tmpuser=$(logname)
@@ -22,16 +23,18 @@ function hardUser {
 
 #Install sudo
 function installSudo {
-	
-	if [[ $currentdistro == $debian ]]
+	if [ ! -f "/etc/sudoers" ]
 	then
-		apt-get install -y sudo
-	elif [[ $currentdistro == $centos ]]
-	then
-		yum -y install sudo
-	fi        
-        #line=$(grep -n "%sudo" /etc/sudoers | cut -d : -f 1)
-        #let "line+=1"
+		if [[ $currentdistro == $debian ]] || [[ $currentdistro == $ubuntu ]]
+		then
+			apt-get install -y sudo
+		elif [[ $currentdistro == $centos ]]
+		then
+			yum -y install sudo
+		fi        
+	        #line=$(grep -n "%sudo" /etc/sudoers | cut -d : -f 1)
+	        #let "line+=1"
+	fi
 }
 
 #Check if running by root
