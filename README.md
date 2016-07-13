@@ -2,10 +2,10 @@
 Just my scripting adventures
 
 My scripts are my own adventure , automating little projects, one at a time.
-My goal is aimed at better out of the box quality of life.
+My goal is aimed at better out the box quality of life.
 Server applications deployment with ease, learning to break stuff and fix it.
 
-I work mostly with Debian
+I work mostly with Debian/CentOS
 
   non-free.sh 
 
