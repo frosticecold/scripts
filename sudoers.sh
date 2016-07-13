@@ -52,17 +52,19 @@ function softUser {
 	case $currentdistro in
 		$debian)
 			usermod -aG sudo $tmpuser
+			checkSucess
 			su $tmpuser
 			;;
 		$centos)
 			usermod -aG wheel $tmpuser
+			checkSucess
 			su $tmpuser
 			;;
 	esac
 }
 
 function checkSuccess {
-	if [ $(groups $tmpuser | grep -c "sudo") == 1 ]
+	if [ $(groups | grep -c "sudo") == 1 ]
 	then
 		echo Sucess, user is in group.
 	fi
@@ -73,7 +75,6 @@ checkRoot
 checkDistro
 installSudo
 softUser
-checkSucess
 
 #install sudo hard mode
 #sed -ie "${line}s/^/$permissions/" /etc/sudoers
