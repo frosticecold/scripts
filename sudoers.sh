@@ -47,28 +47,21 @@ function checkRoot {
         fi
 }
 
-function checkSuccess {
-	if [ $(groups | grep -c "sudo") == 1 ]
-	then
-		echo "Success, user is in group."
-	fi
-}
-
 #Soft add user
 function softUser {
 	echo "Adding user to sudoers file..."
 	case $currentdistro in
 		$debian)
 			usermod -aG sudo $tmpuser
-			checkSuccess
-			su $tmpuser
 			;;
 		$centos)
 			usermod -aG wheel $tmpuser
-			checkSuccess
-			su $tmpuser
 			;;
 	esac
+	if [ $(groups | grep -c "sudo") == 1 ]
+	then
+		echo "Success, user is in group."
+	fi
 }
 #Edit sudoers file
 
