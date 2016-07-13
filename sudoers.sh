@@ -52,14 +52,16 @@ function softUser {
 	echo "Adding user to sudoers file..."
 	case $currentdistro in
 		$debian)
+			sudogroup="sudo"
 			usermod -aG sudo $tmpuser
 			;;
 		$centos)
+			sudogroup="wheel"
 			usermod -aG wheel $tmpuser
 			;;
 	esac
 
-	if [ $(groups $tmpuser | grep -c "sudo") -eq  1 ]
+	if [ $(groups $tmpuser | grep -c $sudogroup) -eq  1 ]
 	then
 		echo "Success, user is in group."
 	fi
