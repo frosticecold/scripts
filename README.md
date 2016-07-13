@@ -18,12 +18,16 @@ I work mostly with Debian
              |-> Adds Backports
 
   sudoers.sh  
+  
+             |-> Detect current distro/os
 
              |-> Copys the session username
              
              |-> Installs sudo
              
-             |-> Adds current username with sudo permissions
+             |-> Adds current username to sudo group (Recommended)
+             
+             |-> Hardcodes user into sudoers file (Not recommeded)
 
   webmin.sh
 
