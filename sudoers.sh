@@ -60,13 +60,9 @@ function softUser {
 	case $currentdistro in
 		$debian)
 			usermod -aG sudo $tmpuser
-			checkSucess
-			su $tmpuser
 			;;
 		$centos)
 			usermod -aG wheel $tmpuser
-			checkSucess
-			su $tmpuser
 			;;
 	esac
 }
@@ -76,6 +72,8 @@ checkRoot
 checkDistro
 installSudo
 softUser
+checkSucess
+su $tmpuser
 
 #install sudo hard mode
 #sed -ie "${line}s/^/$permissions/" /etc/sudoers
