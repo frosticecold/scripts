@@ -25,6 +25,7 @@ function hardUser {
 function installSudo {
 	if [ ! -f "/etc/sudoers" ]
 	then
+		echo "Sudoers file exist"
 		if [[ $currentdistro == $debian ]] || [[ $currentdistro == $ubuntu ]]
 		then
 			apt-get install -y sudo
