@@ -52,11 +52,11 @@ function softUser {
 	case $currentdistro in
 		$debian)
 			usermod -aG sudo $tmpuser
-			su $tmpuser -
+			#su $tmpuser -
 			;;
 		$centos)
 			usermod -aG wheel $tmpuser
-			su $tmpuser -
+			#su $tmpuser -
 			;;
 	esac
 }
