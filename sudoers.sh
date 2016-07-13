@@ -13,7 +13,7 @@ function checkDistro {
     
     currentdistro=$(cat /etc/os-release | grep -w "NAME" | cut -d \" -f2)
     echo $currentdistro
-	}
+}
 
 #Login Username
 function hardUser {
