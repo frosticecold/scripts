@@ -50,7 +50,7 @@ function checkRoot {
 function checkSuccess {
 	if [ $(groups | grep -c "sudo") == 1 ]
 	then
-		echo Sucess, user is in group.
+		echo "Success, user is in group."
 	fi
 }
 
